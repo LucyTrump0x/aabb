@@ -1,6 +1,6 @@
 import { UNSUPPORTED_LIST_URLS } from './../../constants/lists'
 import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
-import { ChainId, Token } from '@uniswap/sdk'
+import { ChainId, Token } from 'lib/@uniswap/uni-sdk'
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
@@ -37,11 +37,10 @@ export type TokenAddressMap = Readonly<
  * An empty result, useful as a default.
  */
 const EMPTY_LIST: TokenAddressMap = {
-  [ChainId.KOVAN]: {},
-  [ChainId.RINKEBY]: {},
-  [ChainId.ROPSTEN]: {},
-  [ChainId.GÖRLI]: {},
-  [ChainId.MAINNET]: {}
+  [ChainId.MAINNET]: {},
+  [ChainId.BLAST]: {},
+  [ChainId.TAIKO]: {},
+  [ChainId.ARBITRUM_SEPOLIA]: {}
 }
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
@@ -61,7 +60,8 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
           })
           ?.filter((x): x is TagInfo => Boolean(x)) ?? []
       const token = new WrappedTokenInfo(tokenInfo, tags)
-      if (tokenMap[token.chainId][token.address] !== undefined) throw Error('Duplicate tokens.')
+      if (tokenMap[token.chainId] && tokenMap[token.chainId][token.address] !== undefined)
+        throw Error('Duplicate tokens.')
       return {
         ...tokenMap,
         [token.chainId]: {
@@ -90,19 +90,24 @@ export function useAllLists(): {
   return useSelector<AppState, AppState['lists']['byUrl']>(state => state.lists.byUrl)
 }
 
+// MAINNET = 1,
+// BLAST = 81457,
+// TAIKO = 167000,
+// ARBITRUM_SEPOLIA = 421614
 function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddressMap {
+  // console.log(map1, 'map1', map2)
   return {
     1: { ...map1[1], ...map2[1] },
-    3: { ...map1[3], ...map2[3] },
-    4: { ...map1[4], ...map2[4] },
-    5: { ...map1[5], ...map2[5] },
-    42: { ...map1[42], ...map2[42] }
+    81457: { ...map1[ChainId.BLAST], ...map2[ChainId.BLAST] },
+    167000: { ...map1[ChainId.TAIKO], ...map2[ChainId.TAIKO] },
+    421614: { ...map1[ChainId.ARBITRUM_SEPOLIA], ...map2[ChainId.ARBITRUM_SEPOLIA] }
   }
 }
 
 // merge tokens contained within lists from urls
 function useCombinedTokenMapFromUrls(urls: string[] | undefined): TokenAddressMap {
   const lists = useAllLists()
+  // console.log(lists, '======list')
 
   return useMemo(() => {
     if (!urls) return EMPTY_LIST

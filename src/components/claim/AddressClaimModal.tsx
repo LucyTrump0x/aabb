@@ -17,9 +17,11 @@ import { isAddress } from 'ethers/lib/utils'
 import Confetti from '../Confetti'
 import { CardNoise, CardBGImage, CardBGImageSmaller } from '../earn/styled'
 import { useIsTransactionPending } from '../../state/transactions/hooks'
-import { TokenAmount } from '@uniswap/sdk'
+import { TokenAmount } from 'lib/@uniswap/uni-sdk'
+// import { TokenAmount, ChainId } from 'lib/@uniswap/uni-sdk'
 import { getEtherscanLink, shortenAddress } from '../../utils'
 
+// console.log(ChainId, 'ChainId')
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
 `
