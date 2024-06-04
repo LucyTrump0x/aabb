@@ -70,6 +70,7 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
     const callKeys: string[] = JSON.parse(serializedCallKeys)
     if (!chainId || callKeys.length === 0) return undefined
     const calls = callKeys.map(key => parseCallKey(key))
+    // console.log(chainId, calls, options, 'multicall')
     dispatch(
       addMulticallListeners({
         chainId,
@@ -93,8 +94,9 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
     () =>
       calls.map<CallResult>(call => {
         if (!chainId || !call) return INVALID_RESULT
-
         const result = callResults[chainId]?.[toCallKey(call)]
+
+        // console.log(toCallKey(call), 'calls----', callResults, 'callResults', result)
         let data
         if (result?.data && result?.data !== '0x') {
           data = result.data
