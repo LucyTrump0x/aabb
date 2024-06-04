@@ -1,5 +1,5 @@
 import { UNSUPPORTED_LIST_URLS } from './../../constants/lists'
-import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
+// import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
 import { ChainId, Token } from 'lib/@uniswap/uni-sdk'
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
@@ -7,6 +7,45 @@ import { useSelector } from 'react-redux'
 import { AppState } from '../index'
 import sortByListPriority from 'utils/listSort'
 import UNSUPPORTED_TOKEN_LIST from '../../constants/tokenLists/uniswap-v2-unsupported.tokenlist.json'
+
+const DEFAULT_TOKEN_LIST = {
+  name: 'CoinGecko',
+  logoURI:
+    'https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png',
+  keywords: ['defi'],
+  timestamp: '2024-06-04T07:02:32.075+00:00',
+  tokens: [
+    {
+      chainId: 1,
+      address: '0xd2877702675e6ceb975b4a1dff9fb7baf4c91ea9',
+      name: 'Wrapped Terra Classic',
+      symbol: 'LUNC',
+      decimals: 18,
+      logoURI: 'https://assets.coingecko.com/coins/images/13628/thumb/wluna.png?1696513376'
+    },
+    {
+      chainId: 167000,
+      address: '0x07d83526730c7438048D55A4fc0b850e2aaB6f0b',
+      name: 'USD Coin',
+      symbol: 'USDC',
+      decimals: 6,
+      logoURI: 'https://assets.coingecko.com/coins/images/13628/thumb/wluna.png?1696513376'
+    },
+    {
+      chainId: 421614,
+      address: '0x591127De1046fdA45ea5FA0646d5fc5f7dCeD94e',
+      name: 'USD Coin',
+      symbol: 'USDC',
+      decimals: 6,
+      logoURI: 'https://assets.coingecko.com/coins/images/13628/thumb/wluna.png?1696513376'
+    }
+  ],
+  version: {
+    major: 384,
+    minor: 8,
+    patch: 0
+  }
+}
 
 type TagDetails = Tags[keyof Tags]
 export interface TagInfo extends TagDetails {

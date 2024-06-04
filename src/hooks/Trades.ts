@@ -63,6 +63,7 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   )
 
   const allPairs = usePairs(allPairCombinations)
+  console.log(tokenA, 'tokenA', tokenB, 'tokenB', allPairs, 'tradeExactIn')
 
   // only pass along valid pairs, non-duplicated pairs
   return useMemo(
@@ -87,11 +88,13 @@ const MAX_HOPS = 3
  * Returns the best trade for the exact amount of tokens in to the given token out
  */
 export function useTradeExactIn(currencyAmountIn?: CurrencyAmount, currencyOut?: Currency): Trade | null {
+  console.log(currencyAmountIn, currencyOut, 'currencyOut')
   const allowedPairs = useAllCommonPairs(currencyAmountIn?.currency, currencyOut)
 
   const [singleHopOnly] = useUserSingleHopOnly()
 
   return useMemo(() => {
+    console.log(currencyAmountIn, currencyOut, allowedPairs, 'tradeExact calc')
     if (currencyAmountIn && currencyOut && allowedPairs.length > 0) {
       if (singleHopOnly) {
         return (
