@@ -158,7 +158,6 @@ export function useDerivedSwapInfo(): {
 
   // get link to trade on v1, if a better rate exists
   const v1Trade = useV1Trade(isExactIn, currencies[Field.INPUT], currencies[Field.OUTPUT], parsedAmount)
-  // console.log(v1Trade, 'v1', v2Trade, 'v2', isExactIn)
 
   let inputError: string | undefined
   if (!account) {

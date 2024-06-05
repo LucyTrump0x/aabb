@@ -30,16 +30,17 @@ async function fetchChunk(
   chunk: Call[],
   minBlockNumber: number
 ): Promise<{ results: string[]; blockNumber: number }> {
-  console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber)
   let resultsBlockNumber, returnData
   try {
     ;[resultsBlockNumber, returnData] = await multicallContract.aggregate(chunk.map(obj => [obj.address, obj.callData]))
-    console.log(resultsBlockNumber.toString(), 'resultsBlockNumber', minBlockNumber)
   } catch (error) {
     console.debug('Failed to fetch chunk inside retry', error)
     throw error
   }
+
   if (resultsBlockNumber.toNumber() < minBlockNumber) {
+    console.log('multicallContract ', multicallContract)
+
     console.debug(`Fetched results for old block number: ${resultsBlockNumber.toString()} vs. ${minBlockNumber}`)
     throw new RetryableError('Fetched for old block number')
   }
@@ -164,7 +165,6 @@ export default function Updater(): null {
         })
         promise
           .then(({ results: returnData, blockNumber: fetchBlockNumber }) => {
-            // console.log(returnData, 'returnData')
             cancellations.current = { cancellations: [], blockNumber: latestBlockNumber }
 
             // accumulates the length of all previous indices
@@ -185,7 +185,6 @@ export default function Updater(): null {
             )
           })
           .catch((error: any) => {
-            console.log(error, 'update error')
             if (error instanceof CancelledError) {
               console.debug('Cancelled fetch for blockNumber', latestBlockNumber)
               return
