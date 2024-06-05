@@ -8,9 +8,7 @@
       "jsx": true
     }
   },
-  "ignorePatterns": [
-    "node_modules/**/*"
-  ],
+  "ignorePatterns": ["node_modules/**/*", "lib/@uniswap/**/*"],
   "settings": {
     "react": {
       "version": "detect"
@@ -25,7 +23,13 @@
   ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
     "prettier/prettier": "error",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "strict": "off",
+    "no-func-assign": "off",
+    "no-mixed-operators": "off",
+    "default-case": "off",
+    "no-unused-expressions": "off"
   }
 }
