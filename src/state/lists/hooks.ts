@@ -29,7 +29,8 @@ const DEFAULT_TOKEN_LIST = {
       name: 'USD Coin',
       symbol: 'USDC',
       decimals: 6,
-      logoURI: 'https://assets.coingecko.com/coins/images/13628/thumb/wluna.png?1696513376'
+      logoURI:
+        'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png'
     },
     {
       chainId: 421614,
@@ -37,7 +38,26 @@ const DEFAULT_TOKEN_LIST = {
       name: 'USD Coin',
       symbol: 'USDC',
       decimals: 6,
-      logoURI: 'https://assets.coingecko.com/coins/images/13628/thumb/wluna.png?1696513376'
+      logoURI:
+        'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png'
+    },
+    {
+      chainId: 84532,
+      address: '0x52600dEeED686BC96124E6416B22E79216A223CF',
+      name: 'USD Coin',
+      symbol: 'USDC',
+      decimals: 6,
+      logoURI:
+        'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png'
+    },
+    {
+      chainId: 84532,
+      address: '0x823c62C037b520643650847f7552eACEBAa71A07',
+      name: 'PEPE',
+      symbol: 'PEPE',
+      decimals: 6,
+      logoURI:
+        'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6982508145454Ce325dDbE47a25d4ec3d2311933/logo.png'
     }
   ],
   version: {
