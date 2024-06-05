@@ -4,7 +4,8 @@ export declare enum ChainId {
     MAINNET = 1,
     BLAST = 81457,
     TAIKO = 167000,
-    ARBITRUM_SEPOLIA = 421614
+    ARBITRUM_SEPOLIA = 421614,
+    BASE_SEPOLIA = 84532
 }
 export declare enum TradeType {
     EXACT_INPUT = 0,
@@ -15,8 +16,8 @@ export declare enum Rounding {
     ROUND_HALF_UP = 1,
     ROUND_UP = 2
 }
-export declare const FACTORY_ADDRESS = "0x643dA4b01FED3B245BE37E756c131052337E178a";
-export declare const INIT_CODE_HASH = "0x1892ee6b3b8f653471529d0b06a772bdc5588bb0b15607cb427c8148f70004a9";
+export declare const FACTORY_ADDRESS = "0xfd8D39298478F7b88FD7687F4B470d095bb8c7Bd";
+export declare const INIT_CODE_HASH = "0x8615843ab28b4b86b2382dca22cf14f0a6ba9e52cb006531eb574042a5b54a46";
 export declare const MINIMUM_LIQUIDITY: JSBI;
 export declare const ZERO: JSBI;
 export declare const ONE: JSBI;
