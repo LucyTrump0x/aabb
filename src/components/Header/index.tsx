@@ -258,7 +258,8 @@ export const StyledMenuButton = styled.button`
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.BLAST]: 'Blast',
   [ChainId.TAIKO]: 'Taiko',
-  [ChainId.ARBITRUM_SEPOLIA]: 'Arbitrum sepolia'
+  [ChainId.ARBITRUM_SEPOLIA]: 'Arbitrum sepolia',
+  [ChainId.BASE_SEPOLIA]: 'Base sepolia'
 }
 
 export default function Header() {

@@ -20,6 +20,7 @@ var ChainId;
   ChainId[ChainId["BLAST"] = 81457] = "BLAST";
   ChainId[ChainId["TAIKO"] = 167000] = "TAIKO";
   ChainId[ChainId["ARBITRUM_SEPOLIA"] = 421614] = "ARBITRUM_SEPOLIA";
+  ChainId[ChainId["BASE_SEPOLIA"] = 84532] = "BASE_SEPOLIA";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -37,8 +38,8 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var FACTORY_ADDRESS = '0x643dA4b01FED3B245BE37E756c131052337E178a';
-var INIT_CODE_HASH = '0x1892ee6b3b8f653471529d0b06a772bdc5588bb0b15607cb427c8148f70004a9';
+var FACTORY_ADDRESS = '0xfd8D39298478F7b88FD7687F4B470d095bb8c7Bd';
+var INIT_CODE_HASH = '0x8615843ab28b4b86b2382dca22cf14f0a6ba9e52cb006531eb574042a5b54a46';
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
@@ -437,7 +438,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.BLAST] = /*#__PURE__*/new Token(ChainId.BLAST, '0x4300000000000000000000000000000000000004', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.TAIKO] = /*#__PURE__*/new Token(ChainId.TAIKO, '0xA51894664A773981C6C112C43ce576f315d5b1B6', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.ARBITRUM_SEPOLIA] = /*#__PURE__*/new Token(ChainId.ARBITRUM_SEPOLIA, '0x980B62Da83eFf3D4576C647993b0c1D7faf17c73', 18, 'WETH', 'Wrapped Ether'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.BLAST] = /*#__PURE__*/new Token(ChainId.BLAST, '0x4300000000000000000000000000000000000004', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.TAIKO] = /*#__PURE__*/new Token(ChainId.TAIKO, '0xA51894664A773981C6C112C43ce576f315d5b1B6', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.ARBITRUM_SEPOLIA] = /*#__PURE__*/new Token(ChainId.ARBITRUM_SEPOLIA, '0x980B62Da83eFf3D4576C647993b0c1D7faf17c73', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.BASE_SEPOLIA] = /*#__PURE__*/new Token(ChainId.BASE_SEPOLIA, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

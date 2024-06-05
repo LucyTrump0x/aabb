@@ -3,7 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 
-export const ROUTER_ADDRESS = '0x878E5e07E767AE3fa2C3676CB311DE22F12491AF'
+export const ROUTER_ADDRESS = '0xAaF04917032161dD6BA5020241eeF79F87a85DC6'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -36,7 +36,8 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.BLAST]: new Token(ChainId.BLAST, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.TAIKO]: new Token(ChainId.TAIKO, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.ARBITRUM_SEPOLIA]: new Token(ChainId.ARBITRUM_SEPOLIA, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
+  [ChainId.ARBITRUM_SEPOLIA]: new Token(ChainId.ARBITRUM_SEPOLIA, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.BASE_SEPOLIA]: new Token(ChainId.BASE_SEPOLIA, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
@@ -54,7 +55,8 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
   [ChainId.BLAST]: [WETH[ChainId.BLAST]],
   [ChainId.TAIKO]: [WETH[ChainId.TAIKO]],
-  [ChainId.ARBITRUM_SEPOLIA]: [WETH[ChainId.ARBITRUM_SEPOLIA]]
+  [ChainId.ARBITRUM_SEPOLIA]: [WETH[ChainId.ARBITRUM_SEPOLIA]],
+  [ChainId.BASE_SEPOLIA]: [WETH[ChainId.BASE_SEPOLIA]]
 }
 
 // used to construct intermediary pairs for trading

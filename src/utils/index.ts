@@ -21,7 +21,8 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   1: '',
   81457: 'Blast.',
   167000: 'Taiko.',
-  421614: 'Arbitrum sepolia.'
+  421614: 'Arbitrum sepolia.',
+  84532: 'Base speolia.'
 }
 
 export function getEtherscanLink(

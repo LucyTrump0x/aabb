@@ -5,14 +5,15 @@ export const OVERLAY_READY = 'OVERLAY_READY'
 
 type FormaticSupportedChains = Extract<
   ChainId,
-  ChainId.MAINNET | ChainId.BLAST | ChainId.TAIKO | ChainId.ARBITRUM_SEPOLIA
+  ChainId.MAINNET | ChainId.BLAST | ChainId.TAIKO | ChainId.ARBITRUM_SEPOLIA | ChainId.BASE_SEPOLIA
 >
 
 const CHAIN_ID_NETWORK_ARGUMENT: { readonly [chainId in FormaticSupportedChains]: string | undefined } = {
   [ChainId.MAINNET]: undefined,
   [ChainId.BLAST]: 'Blast',
   [ChainId.TAIKO]: 'Taiko',
-  [ChainId.ARBITRUM_SEPOLIA]: 'Arbitrum sepolia'
+  [ChainId.ARBITRUM_SEPOLIA]: 'Arbitrum sepolia',
+  [ChainId.BASE_SEPOLIA]: 'Base sepolia'
 }
 
 export class FortmaticConnector extends FortmaticConnectorCore {
