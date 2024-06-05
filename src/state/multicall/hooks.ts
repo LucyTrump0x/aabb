@@ -96,7 +96,7 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
         if (!chainId || !call) return INVALID_RESULT
         const result = callResults[chainId]?.[toCallKey(call)]
 
-        // console.log(toCallKey(call), 'calls----', callResults, 'callResults', result)
+        console.log(toCallKey(call), 'calls----', callResults, 'callResults', result)
         let data
         if (result?.data && result?.data !== '0x') {
           data = result.data
@@ -182,6 +182,7 @@ export function useSingleContractMultipleData(
   )
 
   const results = useCallsData(calls, options)
+  console.log(results, 'results====', options)
 
   const latestBlockNumber = useBlockNumber()
 
@@ -206,6 +207,7 @@ export function useMultipleContractSingleData(
     [callInputs, contractInterface, fragment]
   )
 
+  // console.log('addresses', addresses)
   const calls = useMemo(
     () =>
       fragment && addresses && addresses.length > 0 && callData
@@ -221,6 +223,7 @@ export function useMultipleContractSingleData(
     [addresses, callData, fragment]
   )
 
+  // console.log('callData', calls)
   const results = useCallsData(calls, options)
 
   const latestBlockNumber = useBlockNumber()

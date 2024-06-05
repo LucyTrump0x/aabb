@@ -71,6 +71,7 @@ export default createReducer(initialState, builder =>
     )
     .addCase(fetchingMulticallResults, (state, { payload: { chainId, fetchingBlockNumber, calls } }) => {
       state.callResults[chainId] = state.callResults[chainId] ?? {}
+      console.log('in add case fetch multicall result', calls)
       calls.forEach(call => {
         const callKey = toCallKey(call)
         const current = state.callResults[chainId][callKey]
@@ -99,6 +100,7 @@ export default createReducer(initialState, builder =>
     })
     .addCase(updateMulticallResults, (state, { payload: { chainId, results, blockNumber } }) => {
       state.callResults[chainId] = state.callResults[chainId] ?? {}
+      console.log('update case', results)
       Object.keys(results).forEach(callKey => {
         const current = state.callResults[chainId][callKey]
         if ((current?.blockNumber ?? 0) > blockNumber) return

@@ -62,6 +62,8 @@ export function useTokenBalancesWithLoadingIndicator(
 
   const balances = useMultipleContractSingleData(validatedTokenAddresses, ERC20_INTERFACE, 'balanceOf', [address])
 
+  // console.log('validatedTokens', validatedTokens)
+
   const anyLoading: boolean = useMemo(() => balances.some(callState => callState.loading), [balances])
 
   return [
@@ -108,6 +110,12 @@ export function useCurrencyBalances(
   const tokenBalances = useTokenBalances(account, tokens)
   const containsETH: boolean = useMemo(() => currencies?.some(currency => currency === ETHER) ?? false, [currencies])
   const ethBalance = useETHBalances(containsETH ? [account] : [])
+
+  // console.log(containsETH, 'containsETH')
+  // if (currencies && containsETH) {
+  //   console.log(currencies, 'currencies', containsETH)
+  //   console.log('token balance', ethBalance)
+  // }
 
   return useMemo(
     () =>
