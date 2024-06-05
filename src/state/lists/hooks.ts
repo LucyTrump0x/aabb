@@ -134,7 +134,6 @@ export function useAllLists(): {
 // TAIKO = 167000,
 // ARBITRUM_SEPOLIA = 421614
 function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddressMap {
-  // console.log(map1, 'map1', map2)
   return {
     1: { ...map1[1], ...map2[1] },
     81457: { ...map1[ChainId.BLAST], ...map2[ChainId.BLAST] },

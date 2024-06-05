@@ -63,7 +63,6 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   )
 
   const allPairs = usePairs(allPairCombinations)
-  // console.log(tokenA, 'tokenA', tokenB, 'tokenB', allPairs, 'tradeExactIn')
 
   // only pass along valid pairs, non-duplicated pairs
   return useMemo(
